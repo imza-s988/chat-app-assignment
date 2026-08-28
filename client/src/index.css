@@ -266,13 +266,7 @@ body {
   border-bottom: 1px solid #f2f2f2;
   cursor: pointer;
 }
-.ticks {
-  color: #777;
-}
 
-.ticks.read {
-  color: #2196f3;
-}
 
 .row:hover,
 .row.active {
@@ -291,6 +285,15 @@ body {
   font-weight: bold;
   border-radius: 11px;
   padding: 2px 7px;
+}
+
+/* added the colors tick for read and unread messages */
+.ticks {
+  color: #777;
+}
+
+.ticks.read {
+  color: #2196f3;
 }
 
 /* ---------- Chat ---------- */
