@@ -1,13 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
-    users: [],
-    activeUser: null,
-    messages: [],
-    isConnected: false,
-    onlineUserCount: 0,
-    onlineUsers: [],
-    unread: {},
+    users: [], activeUser: null, messages: [], isConnected: false, onlineUserCount: 0, onlineUsers: [], unread: {},
     typingByUser: {},
     error: null,
 };
@@ -16,7 +9,7 @@ const chatSlice = createSlice({
     name: "chat",
 
     initialState,
-
+    // Added reducers to detect changes after actions.........
     reducers: {
         usersLoaded: (state, action) => {
             state.users = action.payload;
