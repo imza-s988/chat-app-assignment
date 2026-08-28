@@ -9,7 +9,7 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Ask the server who is logged in.
+  // Added all the routes for navigate and see whos are login 
   useEffect(() => {
     api.get("/get")
       .then((res) => setUser(res.data))
