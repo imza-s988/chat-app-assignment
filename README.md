@@ -1,29 +1,80 @@
-# Chat App Assignment
+# 💬 Chat App Assignment
 
-A WhatsApp-style real-time chat application built using the MERN stack and Socket.IO.
+### A WhatsApp-style Real-Time Chat Application
 
-## Project Name
+A full-stack real-time chat application built with the **MERN Stack, Socket.IO, and Redux Toolkit**. The application supports secure authentication, real-time messaging, online/offline status, typing indicators, read receipts, unread messages, message history, and responsive mobile design.
 
-**Chat App Assignment**
+---
 
-## Student Name
+## 👩‍💻 Student
 
 **Imza Sarwar**
 
-## Technologies Used
+## 🚀 Technologies
 
-- React.js
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- Socket.IO
-- Redux Toolkit
-- Axios
-- JWT Authentication
-- CSS
+| Technology       | Purpose                 |
+| ---------------- | ----------------------- |
+| ⚛️ React.js      | Frontend UI             |
+| 🟢 Node.js       | Backend runtime         |
+| 🚂 Express.js    | REST API                |
+| 🍃 MongoDB       | Database                |
+| 🧩 Mongoose      | MongoDB ODM             |
+| 🔌 Socket.IO     | Real-time communication |
+| 🔄 Redux Toolkit | State management        |
+| 🔐 JWT           | Authentication          |
+| 📡 Axios         | API requests            |
+| 🎨 CSS           | Responsive styling      |
 
-## Project Structure
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* User registration
+* User login
+* JWT-based authentication
+* Protected user information
+* Logout functionality
+
+### 💬 Real-Time Chat
+
+* Real-time messaging using Socket.IO
+* Two users can chat simultaneously
+* Message history
+* Messages stored permanently in MongoDB
+* Messages remain available after page refresh
+
+### 🟢 Online / Offline System
+
+* Online user status
+* Offline user status
+* Online user count
+* Real-time online user list
+
+### ✍️ Typing Indicator
+
+* Real-time typing indicator
+* Shows when another user is typing
+
+### 📩 Read & Unread Messages
+
+* Unread message count
+* Read message functionality
+* Blue read ticks
+* Real-time unread count updates
+
+### 🔎 User Experience
+
+* User search
+* Last message preview
+* Message time
+* Responsive mobile layout
+* WhatsApp-style chat interface
+
+---
+
+## 📁 Project Structure
 
 ```text
 chat-app-assignment/
@@ -31,62 +82,47 @@ chat-app-assignment/
 ├── client/
 │   ├── src/
 │   ├── package.json
-│   └── ...
+│   ├── package-lock.json
+│   └── vite.config.js
 │
 ├── server/
+│   ├── connection/
 │   ├── controllers/
+│   ├── cookie/
 │   ├── middleware/
 │   ├── models/
-│   ├── routes/
+│   ├── route/
+│   ├── main.js
 │   ├── socket.js
-│   ├── server.js
 │   ├── package.json
-│   └── ...
+│   └── package-lock.json
 │
 ├── screenshots/
-│   ├── 01-login.png
-│   ├── 02-userlist.png
-│   ├── 03-chat.png
-│   ├── 04-unread.png
-│   ├── 05-mobile.png
-│   └── 06-two-users.png
+│   ├── chat.png
+│   ├── login.png
+│   ├── mobile.png
+│   ├── two-users.png
+│   ├── unread.png
+│   └── userList.png
 │
 ├── .gitignore
-├── .env.example
 └── README.md
 ```
 
-## Features
+---
 
-- User registration and login
-- JWT-based authentication
-- Protected user information
-- Real-time messaging using Socket.IO
-- Online and offline user status
-- Online user count
-- Typing indicator
-- Unread message count
-- Read messages
-- Blue read ticks
-- Message history
-- Messages stored in MongoDB
-- Messages remain available after page refresh
-- User search
-- Last message and message time
-- Responsive mobile layout
-- Logout functionality
-- Two users can chat in real time
+# ⚙️ How to Run
 
-## How to Run
-
-### 1. Clone the Repository
+## 1. Clone the Repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/imza-s988/chat-app-assignment.git
 cd chat-app-assignment
 ```
 
-### 2. Run the Backend
+---
+
+## 2. Run the Backend
 
 Open a terminal and move into the server folder:
 
@@ -94,7 +130,7 @@ Open a terminal and move into the server folder:
 cd server
 ```
 
-Install the backend dependencies:
+Install dependencies:
 
 ```bash
 npm install
@@ -111,29 +147,29 @@ JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
 ```
 
-Start the backend server:
+Start the backend:
 
 ```bash
 npm run dev
 ```
 
-The backend will run on:
+Backend:
 
 ```text
 http://localhost:3000
 ```
 
-### 3. Run the Frontend
+---
 
-Open another terminal.
+## 3. Run the Frontend
 
-Move into the client folder:
+Open another terminal:
 
 ```bash
 cd client
 ```
 
-Install the frontend dependencies:
+Install dependencies:
 
 ```bash
 npm install
@@ -145,25 +181,29 @@ Start the frontend:
 npm run dev
 ```
 
-The frontend will normally run on:
+Frontend:
 
 ```text
 http://localhost:5173
 ```
 
-### 4. Open the Application
+---
 
-Open the frontend URL in your browser:
+## 🌐 Open the Application
+
+Open your browser and visit:
 
 ```text
 http://localhost:5173
 ```
 
-## Environment Variables
+---
 
-The `.env` file contains private configuration and must not be pushed to GitHub.
+# 🔑 Environment Variables
 
-Use `.env.example` as a template:
+For security, the actual `.env` file is **not included in GitHub**.
+
+The project uses `.env.example` as a template.
 
 ```env
 PORT=3000
@@ -172,9 +212,11 @@ JWT_SECRET=your_secret_key
 CLIENT_URL=http://localhost:5173
 ```
 
-The actual `.env` file is excluded using `.gitignore`.
+The `.env` file is protected by `.gitignore`.
 
-## Socket Events
+---
+
+# 🔌 Socket.IO Events
 
 The application uses Socket.IO for real-time communication.
 
@@ -186,7 +228,7 @@ disconnect
 connect_error
 ```
 
-### Online Status Events
+### Online Status
 
 ```text
 online:count
@@ -209,102 +251,159 @@ chat:unread:update
 chat:read
 ```
 
-### Typing Event
+### Typing
 
 ```text
 chat:typing
 ```
 
-## Socket Event Description
+---
 
-| Event | Purpose |
-|---|---|
-| `connect` | Detects when the socket connects |
-| `disconnect` | Detects when the socket disconnects |
-| `connect_error` | Handles socket connection errors |
-| `online:count` | Sends the number of currently online users |
-| `online:users` | Sends the IDs of currently online users |
-| `chat:send` | Sends a new chat message |
-| `chat:message` | Receives a new chat message in real time |
-| `chat:history` | Loads previous messages between two users |
-| `chat:unread` | Gets existing unread messages |
-| `chat:unread:update` | Updates the unread message count |
-| `chat:read` | Marks messages as read |
-| `chat:typing` | Shows the typing indicator |
+## 📡 Socket Event Description
 
-## Database
+| Event                | Purpose                                    |
+| -------------------- | ------------------------------------------ |
+| `connect`            | Detects when the socket connects           |
+| `disconnect`         | Detects when the socket disconnects        |
+| `connect_error`      | Handles socket connection errors           |
+| `online:count`       | Sends the number of currently online users |
+| `online:users`       | Sends IDs of currently online users        |
+| `chat:send`          | Sends a new chat message                   |
+| `chat:message`       | Receives a new message in real time        |
+| `chat:history`       | Loads previous messages                    |
+| `chat:unread`        | Gets existing unread messages              |
+| `chat:unread:update` | Updates unread message count               |
+| `chat:read`          | Marks messages as read                     |
+| `chat:typing`        | Shows the typing indicator                 |
 
-MongoDB is used to store chat messages and user information.
+---
 
-Messages are saved in MongoDB, so the chat history is not lost after refreshing the browser.
+# 🗄️ Database
+
+MongoDB is used to store **users and chat messages**.
+
+Messages remain stored in the database, so the conversation is not lost when the browser is refreshed.
 
 Each message contains information such as:
 
-- Message text
-- Sender
-- Recipient
-- Read/unread status
-- Creation time
+* Message text
+* Sender
+* Recipient
+* Read/unread status
+* Creation time
 
-## Testing
+---
+
+# 🧪 Testing
 
 The application was tested using two browser sessions:
 
-1. Normal browser window
-2. Incognito browser window
+* 🌐 Normal browser window
+* 🕵️ Incognito browser window
 
-Two different users can log in at the same time and communicate through the chat application.
+This allows two different users to log in simultaneously and communicate in real time.
 
-The following functionality was tested:
+### Tested Functionality
 
-- Login
-- Registration
-- User list
-- Online/offline status
-- Real-time message sending
-- Real-time message receiving
-- Typing indicator
-- Unread message count
-- Read messages
-- Blue read ticks
-- Message history
-- Refresh persistence
-- Logout
-- Mobile responsive layout
+* ✅ Registration
+* ✅ Login
+* ✅ User list
+* ✅ Online/offline status
+* ✅ Online user count
+* ✅ Real-time messaging
+* ✅ Real-time message receiving
+* ✅ Typing indicator
+* ✅ Unread message count
+* ✅ Read messages
+* ✅ Blue read ticks
+* ✅ Message history
+* ✅ Refresh persistence
+* ✅ User search
+* ✅ Logout
+* ✅ Mobile responsive layout
+* ✅ Two-user real-time chat
 
-## Screenshots
+---
 
-### 01 - Login
+# 📸 Screenshots
 
-![Login](screenshots/01-login.png)
+## 🔐 Login
 
-### 02 - User List
+![Login](screenshots/login.png)
 
-![User List](screenshots/02-userlist.png)
+---
 
-### 03 - Chat
+## 👥 User List
 
-![Chat](screenshots/03-chat.png)
+![User List](screenshots/userList.png)
 
-### 04 - Unread Messages
+---
 
-![Unread Messages](screenshots/04-unread.png)
+## 💬 Chat
 
-### 05 - Mobile View
+![Chat](screenshots/chat.png)
 
-![Mobile View](screenshots/05-mobile.png)
+---
 
-### 06 - Two Users Chatting
+## 🔴 Unread Messages
 
-![Two Users Chatting](screenshots/06-two-users.png)
-## GitHub Repository
+![Unread Messages](screenshots/unread.png)
 
-The complete project is available in the GitHub repository:
+---
 
-**YOUR_GITHUB_REPOSITORY_URL**
+## 📱 Mobile View
 
-## Conclusion
+![Mobile View](screenshots/mobile.png)
 
-This project demonstrates a real-time WhatsApp-style chat application using React, Node.js, Express, MongoDB, Redux Toolkit and Socket.IO.
+---
 
-It supports authentication, real-time communication, online/offline status, typing indicators, unread messages, read status, message history and persistent MongoDB storage.
+## 👥 Two Users Chatting
+
+![Two Users Chatting](screenshots/two-users.png)
+
+---
+
+# 🖼️ How Screenshots Work
+
+The screenshots are stored inside the project's `screenshots` folder.
+
+For example:
+
+```text
+screenshots/
+└── login.png
+```
+
+The README references it using:
+
+```markdown
+![Login](screenshots/login.png)
+```
+
+Because the image is inside the repository, GitHub automatically displays it when someone opens the README.
+
+---
+
+# 🔗 GitHub Repository
+
+**Chat App Assignment**
+
+https://github.com/imza-s988/chat-app-assignment
+
+---
+
+# 🎯 Conclusion
+
+This project demonstrates the development of a **full-stack WhatsApp-style real-time chat application** using modern web technologies.
+
+The application combines **React, Node.js, Express, MongoDB, Redux Toolkit, JWT Authentication, and Socket.IO** to provide a complete real-time messaging experience.
+
+It includes authentication, real-time communication, online/offline presence, typing indicators, unread messages, read receipts, message history, persistent database storage, user search, and responsive mobile support.
+
+---
+
+### ⭐ Project Highlights
+
+**MERN Stack + Socket.IO + Redux Toolkit + JWT + Real-Time Messaging**
+
+**Built by Imza Sarwar**
