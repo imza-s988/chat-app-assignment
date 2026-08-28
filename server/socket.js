@@ -62,7 +62,7 @@ function initSocket(server) {
             credentials: true
         }
     });
-// jwt authentication
+    // jwt authentication
     io.use((socket, next) => {
         try {
             const raw = socket.handshake.headers.cookie || "";
@@ -89,8 +89,7 @@ function initSocket(server) {
 
         socket.join(userId);
         addUser(userId);
-
-        // online count
+        // online counts are added and then we track the online users 
         io.emit("online:count", getOnlineCount());
         io.emit("online:users", getOnlineUsers());
 
@@ -235,7 +234,7 @@ function initSocket(server) {
         socket.on("disconnect", () => {
             removeUser(userId);
             io.emit("online:count", getOnlineCount());
-          
+
             io.emit("online:users", getOnlineUsers());
         });
     });
@@ -243,4 +242,4 @@ function initSocket(server) {
     return io;
 }
 
-module.exports = {initSocket};
+module.exports = { initSocket };
