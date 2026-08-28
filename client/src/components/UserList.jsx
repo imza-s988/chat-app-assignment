@@ -2,25 +2,25 @@ import { useState } from "react";
 const initial = (name) => (name || "?").charAt(0).toUpperCase();
 const messageTime = (date) => {
   if (!date) return "";
- const d = new Date(date);
+  const d = new Date(date);
   const today = new Date();
-const sameDay =
+  const sameDay =
     d.getDate() === today.getDate() &&
     d.getMonth() === today.getMonth() &&
     d.getFullYear() === today.getFullYear();
-if (sameDay) {
+  if (sameDay) {
     return d.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
     });
   }
-const yesterday = new Date();
+  const yesterday = new Date();
   yesterday.setDate(today.getDate() - 1);
-const isYesterday =
+  const isYesterday =
     d.getDate() === yesterday.getDate() &&
     d.getMonth() === yesterday.getMonth() &&
     d.getFullYear() === yesterday.getFullYear();
-if (isYesterday) return "Yesterday";
+  if (isYesterday) return "Yesterday";
 
   return d.toLocaleDateString();
 };
@@ -37,15 +37,15 @@ export default function UserList({
   onLogout,
 }) {
   const [search, setSearch] = useState("");
-const shown = users.filter((u) =>
+  const shown = users.filter((u) =>
     u.name.toLowerCase().includes(search.toLowerCase())
   );
-return (
+  return (
     <div className="side">
       <div className="side-head">
         <div className="me">
           <div className="avatar">{initial(me?.name)}</div>
-<div>
+          <div>
             <div className="name">{me?.name || "User"}</div>
             <div className="muted small">Logged in</div>
           </div>
@@ -53,7 +53,7 @@ return (
 
         <div className="right">
           <span className="online-pill">● Online: {onlineCount}</span>
-<button className="link-btn" onClick={onLogout}>
+          <button className="link-btn" onClick={onLogout}>
             Logout
           </button>
         </div>
@@ -69,12 +69,12 @@ return (
       </div>
 
       <div className="list">
-      {shown.map((u) => {
-        const isOnline = onlineUsers?.includes(String(u._id));
+        {shown.map((u) => {
+          const isOnline = onlineUsers?.includes(String(u._id));
 
-        const isTyping = Boolean(
-          typingByUser?.[String(u._id)]
-        );
+          const isTyping = Boolean(
+            typingByUser?.[String(u._id)]
+          );
 
           return (
             <div
@@ -117,7 +117,7 @@ return (
             </div>
           );
         })}
-
+        {/* Added no use found Message */}
         {shown.length === 0 && (
           <p className="muted pad">No users found.</p>
         )}
